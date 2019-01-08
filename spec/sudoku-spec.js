@@ -16,4 +16,9 @@ describe('Sudoku', function(){
       [2,7,4,3,5,1,6,9,8]
     ]);
   });
+
+  it('should test there are matches in the same row', function(){
+    let newBoard = new Sudoku();
+    expect(newBoard.horizontalCheck()).toEqual(true);
+  });
 });

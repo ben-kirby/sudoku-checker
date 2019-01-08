@@ -15,23 +15,27 @@ class Sudoku {
 
   horizontalCheck(){
     let i = 0;
-    for (var j = 0; j < this.board[i].length; j++) {
+    for (var j = 0; j <= 8; j++) {
       this.board[i][j];
-      for (var k = 0; k < this.board[i].length; k++) {
+      for (var k = 0; k <= 8; k++) {
         this.board[i][k];
         if (j != k) {
           if (this.board[i][j] == this.board[i][k]) {
-            return false
-          }
-          else {
-            i++;
+            return false;
           }
         }
       }
+      i++;
     }
+    return true;
   }
 
-
+  verticalCheck(){
+  let i = 0;
+  for (var j = 0; j < 8; j++) {
+    
+  }
+}
     // if each value of a single array is {1: 1-9, 2:unique}
     //   return true
 
