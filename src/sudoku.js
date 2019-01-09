@@ -16,9 +16,7 @@ class Sudoku {
   horizontalCheck(){
     let i = 0;
     for (var j = 0; j <= 8; j++) {
-      this.board[i][j];
       for (var k = 0; k <= 8; k++) {
-        this.board[i][k];
         if (j != k) {
           if (this.board[i][j] == this.board[i][k]) {
             return false;
@@ -31,30 +29,56 @@ class Sudoku {
   }
 
   verticalCheck(){
-  let i = 0;
-  for (var j = 0; j < 8; j++) {
-    
+    let i = 0; //array element being checked against
+    for (var j = 0; j <= 8; j++) {
+      for (var k = 0; k <= 8; k++) {
+        if(j != k){
+          if (this.board[j][i] == this.board[k][i]) {
+            return false;
+          }
+        }
+      } //j = row
+      i++;
+    }
+    return true;
+  }
+
+  checkSection(){
+    let i = 0;
+    let j = 0;
+    let k = 0;
+    let l = 0;
+    let sectionArray = [];
+    let totalArray = [];
+
+    for (let i = i; i < 3; i++) {
+      for (let j = j; j < 3; j++) {
+        for (let k = k; k < 3; k++) {
+          for (let l = l; l < 3; l++) {
+            sectionArray.push(this.board[k][l]);
+          } // l
+        }
+        totalArray.push(sectionArray);
+        sectionArray = []; //k
+        a += 3;
+      } //j
+      a = 0;
+      b += 3;
+      debugger;
+    } //i
+    for (let m = 0; m <=8; m++) {
+      for (let n = 0; n <= 8; n++) {
+        for (let o = 0; o <= 8; o++) {
+          if (n != o) {
+            if (totalArray[m][n] == totalArray[m][o]) {
+              return false;
+            }
+          }
+        }
+      }
+    }
+    return true;
   }
 }
-    // if each value of a single array is {1: 1-9, 2:unique}
-    //   return true
 
-
-  // verticalCheck(){
-  //   if a single element of each array is {1: 1-9, 2:unique}
-  //     return true
-  // }
-
-
-}
-
-export {Sudoku}
-
-
-// board[0] = [6,3,9,5,7,4,1,8,2]
-// board[0][0] = 6
-//
-// for (var i = 0; i <= 2; i++) {
-//   let arrayCheck = [];
-//
-// }
+export {Sudoku};

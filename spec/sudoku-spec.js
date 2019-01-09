@@ -21,4 +21,14 @@ describe('Sudoku', function(){
     let newBoard = new Sudoku();
     expect(newBoard.horizontalCheck()).toEqual(true);
   });
+
+  it('should test there are matches in the same column', function(){
+    let newBoard = new Sudoku();
+    expect(newBoard.verticalCheck()).toEqual(true);
+  });
+
+  it('should return true if the first box has no duplicates', function(){
+    let newBoard = new Sudoku();
+    expect(newBoard.checkSection()).toEqual(true);
+  });
 });
